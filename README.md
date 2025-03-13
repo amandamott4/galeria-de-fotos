@@ -1,7 +1,5 @@
 # CSS-galeria-de-fotos
 
-Claro, aqui está a documentação organizada por tópicos em português, com títulos em maiúsculas e separados por linha:
-
 ---
 
 ### META TAGS
@@ -152,3 +150,168 @@ Quando você quer estilizar todas as instâncias de um determinado elemento HTML
 - `<progress>`: progresso de uma tarefa
 - `<q>`: citação curta
 - `<s>`: texto tachado
+- `<samp>`: exemplo de código
+- `<section>`: seção
+- `<select>`: caixa de seleção
+- `<small>`: texto pequeno
+- `<source>`: fonte para elementos de mídia
+- `<span>`: contêiner genérico
+- `<strong>`: texto forte
+- `<style>`: estilo interno
+- `<sub>`: subscrito
+- `<summary>`: resumo para `<details>`
+- `<sup>`: sobrescrito
+- `<table>`: tabela
+- `<tbody>`: corpo da tabela
+- `<td>`: célula da tabela
+- `<template>`: modelo
+- `<textarea>`: área de texto
+- `<tfoot>`: rodapé da tabela
+- `<th>`: cabeçalho de célula
+- `<thead>`: cabeça da tabela
+- `<time>`: tempo
+- `<title>`: título do documento
+- `<tr>`: linha da tabela
+- `<track>`: faixa de texto para mídia
+- `<ul>`: lista não ordenada
+- `<video>`: vídeo
+
+---
+
+### ATRIBUTO ALT
+
+O atributo alt da imagem deve descrever o conteúdo da imagem. Leitores de tela anunciam o texto alternativo no lugar das imagens. Se a imagem não puder ser carregada, este texto será apresentado no lugar da imagem.
+
+---
+
+### VISUALIZAÇÃO E DIMENSÃO DOS ELEMENTOS
+
+Para visualizar melhor como seus elementos são dimensionados, adicionar uma borda pode ser útil.
+
+Dê ao elemento `.gallery` uma largura de 50% e uma borda de 5px sólida vermelha.
+
+Então, dê aos elementos `img` uma largura de 100%, preenchimento de 5px e uma borda de 5px sólida azul.
+
+---
+
+### CALCULAÇÃO DE TAMANHO COM BORDER E PADDING
+
+Quando você adiciona uma borda ou um preenchimento (padding) a um elemento em HTML, ele pode ficar maior do que você esperava. Isso ocorre porque o navegador, por padrão, adiciona esses valores ao tamanho do conteúdo do elemento.
+
+**Exemplo:**
+
+Imagine que você tem uma caixa com 100 pixels de largura e adiciona 10 pixels de borda e 20 pixels de preenchimento (10 pixels de cada lado). Então, a largura total da caixa será:
+
+100 (conteúdo) + 10 (bordas) + 20 (preenchimento) = 130 pixels.
+
+---
+
+### PROPRIEDADE BOX-SIZING
+
+A propriedade box-sizing pode mudar a forma como essa largura é calculada.
+
+**Valores possíveis:**
+- `border-box`: O tamanho total do elemento, incluindo padding e border, será a largura explícita definida. O conteúdo do elemento encolherá para dar espaço ao padding e border.
+- `content-box`: O tamanho do conteúdo é usado para calcular a largura, e a borda e o preenchimento são somados a isso.
+
+---
+
+### UTILIZAÇÃO DO SELETOR GLOBAL
+
+O seletor global * é usado para aplicar estilos a todos os elementos da página. Portanto, ao definir box-sizing explicitamente para content-box com o seletor global, você está garantindo que todos os elementos usarão o modelo content-box.
+
+```css
+* {
+  box-sizing: content-box;
+}
+```
+
+---
+
+### FLEXBOX E SUAS PROPRIEDADES
+
+**Flexbox** é um layout CSS unidimensional que pode controlar a maneira como os itens são espaçados e alinhados dentro de um contêiner.
+
+**Para usar Flexbox:**
+Atribua uma propriedade display de `flex` a um elemento. Isso fará com que o elemento se torne um contêiner flex. Qualquer filho direto de um contêiner flex é chamado de item flex.
+
+---
+
+### EIXO PRINCIPAL E EIXO CRUZADO
+
+O Flexbox possui um eixo principal e um eixo cruzado. O eixo principal é definido pela propriedade flex-direction, que possui quatro valores possíveis:
+
+- `row` (padrão): eixo horizontal com itens flex de esquerda para direita.
+- `row-reverse`: eixo horizontal com itens flex de direita para esquerda.
+- `column`: eixo vertical com itens flex de cima para baixo.
+- `column-reverse`: eixo vertical com itens flex de baixo para cima.
+
+---
+
+### PROPRIEDADE FLEX-WRAP
+
+A propriedade `flex-wrap` determina como seus itens flex se comportam quando o contêiner flex é pequeno demais. Defini-la como `wrap` permitirá que os itens se ajustem à próxima linha ou coluna. `nowrap` (padrão) impedirá que seus itens se ajustem e os reduzirá se necessário.
+
+---
+
+### PROPRIEDADE JUSTIFY-CONTENT
+
+A propriedade `justify-content` determina como os itens dentro de um contêiner flex são posicionados ao longo do eixo principal, afetando sua posição e o espaço ao redor deles.
+
+---
+
+### PROPRIEDADE ALIGN-ITEMS
+
+A propriedade `align-items` posiciona o conteúdo flex ao longo do eixo transversal. Neste caso, com sua flex-direction definida como row, seu eixo transversal seria vertical.
+
+---
+
+### PROPRIEDADE OBJECT-FIT
+
+A propriedade `object-fit` determina como as imagens devem se comportar. Você pode usar essa propriedade para ajustar como as imagens devem preencher o contêiner img enquanto mantém a proporção, resultando em um corte para ajustar.
+
+```css
+.gallery img {
+  object-fit: cover;
+}
+```
+
+---
+
+### PROPRIEDADE GAP
+
+A propriedade abreviada `gap` do CSS define os espaços, também conhecidos como `gutters`, entre linhas e colunas. A propriedade gap e suas subpropriedades row-gap e column-gap fornecem essa funcionalidade para layouts flex, grid e multi-coluna. Você aplica a propriedade ao elemento contêiner.
+
+```css
+.gallery {
+  display: flex;
+  gap: 16px;
+}
+```
+
+---
+
+### PROPRIEDADE BORDER-RADIUS
+
+Suavize suas imagens um pouco, dando ao seletor `.gallery img` uma propriedade `border-radius` com o valor de 10px.
+
+```css
+.gallery img {
+  border-radius: 10px;
+}
+```
+
+---
+
+### PSEUDO-ELEMENTO ::AFTER
+
+O pseudo-elemento `::after` cria um elemento que é o último filho do elemento selecionado. Você pode usá-lo para adicionar um elemento vazio após a última imagem. Se você der a ele a mesma largura das imagens, ele empurrará a última imagem para a esquerda quando a galeria estiver em um layout de duas colunas. No momento, ela está no centro porque você definiu justify-content: center no contêiner flex.
+
+**Exemplo de Código:**
+
+```css
+.container::after {
+  content: "";
+  width: 860px; /* Ajuste este valor conforme necessário */
+}
+```
